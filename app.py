@@ -16,8 +16,8 @@ spark = SparkSession.builder.appName('ml-students').getOrCreate()
 
 def loadData(type) :
     if type == "local" :
-        df_mat = spark.read.option("delimiter", ";").csv('file:///Users/mjinor/Desktop/ms.dehghan/student/student-mat.csv', header = True, inferSchema = True)
-        df_por = spark.read.option("delimiter", ";").csv('file:///Users/mjinor/Desktop/ms.dehghan/student/student-por.csv', header = True, inferSchema = True)
+        df_mat = spark.read.option("delimiter", ";").csv('file:///./Data/student-mat.csv', header = True, inferSchema = True)
+        df_por = spark.read.option("delimiter", ";").csv('file:///./Data/student-por.csv', header = True, inferSchema = True)
         return df_mat.union(df_por)
     elif type == "hdfs" :
         df_mat = spark.read.option("delimiter", ";").csv('student-mat.csv', header = True, inferSchema = True)
